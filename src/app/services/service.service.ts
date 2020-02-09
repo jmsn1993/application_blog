@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { GLOBAL } from "./config";
-import { Post } from "../models/post";
 
 @Injectable({
   providedIn: "root"
@@ -44,5 +43,5 @@ export class ServiceService {
       .pipe();
   }
 
-  
+
 }
