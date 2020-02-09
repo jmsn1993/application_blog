@@ -1,10 +1,20 @@
-# Blog
+# Publications project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
 
-## Development server
+The UI Framework used is [NG-Zorro](https://ng.ant.design/docs/introduce/en) version 1.8
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The project uses [JSON-Server](https://www.npmjs.com/package/json-server) to create a back-end for prototyping and mocking.
+
+## Start the project
+
+1.- Run in the console the command `npm install` to install the node modules.
+
+2.- Start the Json server running in the console the command `json-server --watch db.json` to start the server serving in `http://localhost:3000/`. The sample data of db.json is included in the project `https://github.com/jmsn1993/application_blog/blob/master/db.json`
+
+3.- Run the Angular Development server using que command `ng serve`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+
 
 ## Code scaffolding
 

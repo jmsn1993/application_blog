@@ -1,0 +1,40 @@
+nz-layout {
+  height: 100vh;
+}
+nz-sider {
+  background: #52c41a;
+  color: #fff;
+  line-height: 120px;
+}
+.ant-list {
+  color: #fff;
+  font-size: 1.5em;
+}
+.selected {
+  background: #3c6926;
+}
+nz-header {
+  color: aqua;
+  background: rgba(0, 0, 0, 0.65);
+}
+nz-header h1 {
+  color: aqua;
+}
+nz-content {
+  padding: 20px;
+  background: #fafafa;
+  overflow: auto;
+}
+.pointer {
+  cursor: pointer;
+}
+.author-item {
+  color: beige;
+  font-size: 1em !important;
+  font-weight: 400;
+}
+label {
+  color: black;
+  margin: 5px;
+  font-size: 1em;
+}

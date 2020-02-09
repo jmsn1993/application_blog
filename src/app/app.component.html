@@ -1,4 +1,145 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1NvvIwTtYBeNjy1XdXXXXyVXa-89-131.svg">
-</a>
+<nz-layout>
+  <!-- SIDEBAR START -->
+  <!-- Authors display -->
+  <nz-sider>
+    <nz-list
+      [nzDataSource]="authors"
+      nzBordered
+      [nzHeader]="''"
+      [nzRenderItem]="defaultItem"
+    >
+      <ng-template #defaultItem let-item>
+        <!-- The item event click send to the function loadData the index(page) one and the author-->
+        <nz-list-item
+          class="pointer author-item"
+          (click)="loadData(1, item.firstName)"
+          [ngClass]="{ selected: author === item.firstName }"
+        >
+          <p>{{ item.firstName }} {{ item.lastName }}</p>
+        </nz-list-item>
+      </ng-template>
+      <!-- In case all authors the authos is sended empty -->
+      <nz-list-item
+        class="pointer author-item"
+        [ngClass]="{ selected: author === '' }"
+        (click)="loadData(1, '')"
+      >
+        All Authors
+      </nz-list-item>
+    </nz-list>
+  </nz-sider>
+  <!-- SIDEBAR END -->
+  <nz-layout>
+    <!-- HEADER START -->
+    <nz-header>
+      <!-- 
+        The event click invokes the function invertSort
+        The icon showed in the button depends of the type of sort
+      -->
+      <div nz-row nzGutter="16">
+        <div nz-col nzSpan="20"><h1>Publications</h1></div>
+        <div nz-col nzSpan="4">
+          <button nz-button nzType="default" (click)="invertSort()">
+            <i
+              *ngIf="sort == 'asc'"
+              nz-icon
+              type="sort-ascending"
+              theme="outline"
+            ></i>
+            <i
+              *ngIf="sort == 'desc'"
+              nz-icon
+              type="sort-descending"
+              theme="outline"
+            ></i>
+            Invert sort
+          </button>
+        </div>
+      </div>
+    </nz-header>
+    <!-- HEADER END -->
+    <!-- CONTENT START -->
+    <nz-content>
+      <!-- Publications display -->
+      <nz-list
+        [nzDataSource]="posts"
+        [nzItemLayout]="'vertical'"
+        [nzRenderItem]="item"
+        [nzPagination]="pagination"
+      >
+        <ng-template #item let-item>
+          <nz-list-item [nzContent]="item.content">
+            <!-- At the moment of click a publication the function to show comments is invokes -->
+            <nz-list-item-meta
+              [nzTitle]="nzTitle"
+              [nzDescription]="nzDesc"
+              class="pointer"
+              (click)="showComments(item.id)"
+            >
+              <ng-template #nzTitle>
+                <div nz-row nzGutter="16">
+                  <div nz-col nzSpan="18">{{ item.title }}</div>
+                  <div nz-col nzSpan="6">
+                    <label>Author:</label> {{ item.author }}
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template #nzDesc>
+                <div nz-row nzGutter="16">
+                  <div nz-col nzSpan="20">{{ item.description }}</div>
+                  <div nz-col nzOffset="18" nzSpan="6">
+                    <label>Date:</label> {{ item.date }}
+                  </div>
+                </div>
+              </ng-template>
+            </nz-list-item-meta>
+          </nz-list-item>
+        </ng-template>
+        <!-- Pagination -->
+        <ng-template #pagination>
+          <nz-button-group [nzSize]="size">
+            <!-- 
+              The backward button is disabled if page = 1 
+              The click event invokes the functios loadData subtracting one to the page and using athe author selected
+            -->
+            <button
+              nz-button
+              (click)="loadData(page - 1, author)"
+              [disabled]="page == 1"
+              nzType="primary"
+            >
+              <i nz-icon type="left"></i>Backward
+            </button>
+            <label for="Page">Page {{ page }}</label>
+            <!-- 
+              The forward button is disabled if the array posts length is less than ten
+              The click event invokes the functios loadData adding one to the page and using athe author selected
+            -->
+            <button
+              nz-button
+              (click)="loadData(page + 1, author)"
+              [disabled]="posts.length < 10"
+              nzType="primary"
+            >
+              Forward<i nz-icon type="right"></i>
+            </button>
+          </nz-button-group>
+        </ng-template>
+      </nz-list>
+      <!-- DRAWER START -->
+      <!-- Comments display -->
+      <nz-drawer
+        [nzClosable]="true"
+        [nzVisible]="visible"
+        nzPlacement="right"
+        nzTitle="Comments"
+        (nzOnClose)="close()"
+      >
+        <p *ngFor="let item of comments">{{ item.body }}</p>
+        <p *ngIf="comments.length == 0">No comments</p>
+      </nz-drawer>
+      <!-- DRAWER END -->
+    </nz-content>
+    <!-- CONTENT END -->
+  </nz-layout>
+</nz-layout>

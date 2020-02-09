@@ -2,18 +2,119 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Javascript",
+      "description": "often abbreviated as JS, is an interpreted programming language that conforms to the ECMAScript specification",
+      "date": "2019-10-10",
+      "author": "Sandy"
+    },
+    {
+      "id": 2,
+      "title": "ECMAScript",
+      "description": "is a scripting-language specification standardized by Ecma International in ECMA-262 and ISO/IEC 16262. It was created to standardize JavaScript to help foster multiple independent implementations.",
+      "date": "2019-10-11",
+      "author": "John"
+    },
+    {
+      "id": 3,
+      "title": "Angular",
+      "description": "Angular puts you in control over scalability. Meet huge data requirements by building data models on RxJS, Immutable.js or another push-model.",
+      "date": "2019-10-12",
+      "author": "John"
+    },
+    {
+      "id": 4,
+      "title": "VueJS",
+      "description": "Is an open-source Model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.",
+      "date": "2019-10-19",
+      "author": "Sandy"
+    },
+    {
+      "id": 5,
+      "title": "ReactJS",
+      "description": "It is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies",
+      "date": "2019-02-18",
+      "author": "John"
+    },
+    {
+      "id": 6,
+      "title": "PostCSS",
+      "description": "PostCSS is a software development tool that uses JavaScript-based plugins to automate routine CSS operations.",
+      "date": "2019-10-17",
+      "author": "John"
+    },
+    {
+      "id": 7,
+      "title": "NodeJS",
+      "description": "Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser. ",
+      "date": "2019-10-15",
+      "author": "Sandy"
+    },
+    {
+      "id": 8,
+      "title": "JSON",
+      "description": "is an open-standard file format or data interchange format that uses human-readable text to transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value).",
+      "date": "2019-10-15",
+      "author": "Alessia"
+    },
+    {
+      "id": 9,
+      "title": "HTML",
+      "description": "Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.",
+      "date": "2019-10-10",
+      "author": "Alessia"
+    },
+    {
+      "id": 10,
+      "title": "SQL",
+      "description": "Structured Query Language is a domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS), or for stream processing in a relational data stream management system (RDSMS). ",
+      "date": "2019-10-10",
+      "author": "Alessia"
+    },
+    {
+      "id": 11,
+      "title": "MongoDB",
+      "description": "MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License (SSPL).",
+      "date": "2019-10-10",
+      "author": "John"
+    },
+    {
+      "id": 12,
+      "title": "Git",
+      "description": "Git is a distributed version-control system for tracking changes in source code during software development",
+      "date": "2019-10-10",
+      "author": "John"
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
+      "body": "some comment about the post Javascript",
       "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment about the post Angular",
+      "postId": 3
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "authors": [
+   {
+      "id": 1,  
+      "firstName": "John",
+      "lastName": "Brown",
+      "email": "john@gmail.com"
+   },
+   {
+      "id": 2,
+      "firstName": "Alessia",
+      "lastName": "Pinna",
+      "email": "alessia@gmail.com"
+   },
+   {
+      "id": 3,
+      "firstName": "Sandy",
+      "lastName": "wine",
+      "email": "sand@gmail.com"
+   }
+  ]
 }
